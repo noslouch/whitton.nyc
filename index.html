@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, minimal-ui">
+        <title></title>
+        <style>
+            * {
+                margin: 0; padding: 0;
+            }
+            html, body {
+                width: 100%; height: 100%;
+            }
+            body {
+                background: #333;
+            }
+            canvas {
+                display: block;
+                position: absolute;
+                top: 0;
+                z-index: -1;
+            }
+            footer {
+                position: absolute;
+                bottom: 0;
+                padding: 15px;
+            }
+            
+            .control {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background: transparent;
+                border: 2px solid #eaeaea;
+                padding: 5px 12px;
+                color: #fafafa;
+                line-height: 2;
+                cursor: pointer;
+            }
+
+            .control:active,
+            .control:focus {
+                outline: none;
+                border-radius: 5px;
+            }
+
+            .control:first-child {
+                margin-right: 10px;
+            }
+
+            .control.active {
+                border-radius: 5px;
+            }
+
+            .container {
+                height: 100%;
+                font-size: 5rem;
+                color: white;
+                opacity: 0;
+                transition: opacity 250ms 0;
+
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+
+                -webkit-box-pack: justify;
+                -moz-box-pack: justify;
+                -webkit-justify-content: space-between;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+            }
+
+            .container.show {
+                opacity: 1;
+            }
+
+            .tilt-control {
+                background: rgba(0,0,0,0.25);
+                min-width: 75px;
+
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+
+                -webkit-box-direction: normal;
+                -moz-box-direction: normal;
+                -webkit-box-orient: vertical;
+                -moz-box-orient: vertical;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+
+                -webkit-box-pack: center;
+                -moz-box-pack: center;
+                -webkit-justify-content: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+
+            }
+
+            .right {
+                padding-left: 15px;
+            }
+
+            .left {
+                padding-right: 15px;
+            }
+
+            .left span {
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+                margin-top: 25px;
+            }
+
+            .message {
+                font-family: 'Helvetica', 'Arial', sans-serif;
+                font-size: 2rem;
+                text-align: center;
+
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+
+                -webkit-box-direction: normal;
+                -moz-box-direction: normal;
+                -webkit-box-orient: vertical;
+                -moz-box-orient: vertical;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+
+                -webkit-box-pack: center;
+                -moz-box-pack: center;
+                -webkit-justify-content: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="container" id="container">
+        <div class="tilt-control left"><span>&#10143;</span></div>
+        <div class="message">
+            <p>tilt your device.</p>
+        </div>
+        <div class="tilt-control right"><span>&#10143;</span></div>
+    </div>
+        <footer>
+            <button class="control" id="pause" type="button">pause</button>
+            <button class="control" id="play" type="button">play</button>
+        </footer>
+        <canvas id="canvas"></canvas>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
