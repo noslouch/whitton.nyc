@@ -1,2 +1,4 @@
-RewriteCond ^www\. %{HTTP_HOST}
-RewriteRule www\.(.*) $1
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^(.*)$ http://%1 [R=301,L]
+</IfModule>
