@@ -1,0 +1,2 @@
+RewriteCond ^www\. %{HTTP_HOST}
+RewriteRule www\.(.*) $1
