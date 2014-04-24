@@ -1,5 +1,7 @@
 /*jshint asi:true*/
 var c = document.getElementById('canvas'),
+    requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame,
+    cancelAnimationFrame = window.cancelAnimationFrame || window.webkitCancelRequestAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.msCancelAnimationFrame,
     ctx = c.getContext('2d'),
     start = Math.floor(Math.random() * 360),
     stop = start - 180,
