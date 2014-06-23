@@ -104,24 +104,28 @@
     }, false)
 
     play.addEventListener('click', function(e) {
-        play.classList.add('active')
-        pause.classList.remove('active')
+        if (!this.classList.contains('active')) {
+            play.classList.add('active')
+            pause.classList.remove('active')
 
-        if ( orientationDetect ) {
-            window.addEventListener('deviceorientation', orientationHandler, false)
-        } else {
-            draw()
+            if ( orientationDetect ) {
+                window.addEventListener('deviceorientation', orientationHandler, false)
+            } else {
+                draw()
+            }
         }
     }, false)
 
     pause.addEventListener('click', function() {
-        play.classList.remove('active')
-        pause.classList.add('active')
+        if (!this.classList.contains('active')) {
+            play.classList.remove('active')
+            pause.classList.add('active')
 
-        if ( orientationDetect ) {
-            window.removeEventListener('deviceorientation', orientationHandler)
-        } else {
-            cancelAnimationFrame(animation)
+            if ( orientationDetect ) {
+                window.removeEventListener('deviceorientation', orientationHandler)
+            } else {
+                cancelAnimationFrame(animation)
+            }
         }
     })
 
@@ -142,4 +146,5 @@
             }, 1000)
         }, 5000)
     }
+
 })()
